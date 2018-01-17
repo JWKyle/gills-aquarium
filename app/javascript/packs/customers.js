@@ -1,62 +1,58 @@
 import "hello_angular/polyfills";
-import { Component, NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+
+import { Component, NgModule    } from "@angular/core";
+import { BrowserModule          } from "@angular/platform-browser";
+import { FormsModule            } from "@angular/forms";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
 var CustomerSearchComponent = Component({
   selector: "gills-customer-search",
-  template: ' \
+  template: '\
 <header> \
-  <h1 class="h2"> Customer Search</h1> \
+  <h1 class="h2">Customer Search</h1> \
 </header> \
-
 <section class="search-form"> \
-  <%= form_for :customers, method: :get do |f| %> \
+  <form> \
     <div class="input-group input-group-lg"> \
-      <%= label_tag :keywords, nil, class: "sr-only" %> \
-      <%= text_field_tag :keywords, nil, placeholder: "First Name, Last Name, or E-mail Address", class: "form-control input-lg" %> \
+      <label for="keywords" class="sr-only">Keywords></label> \
+      <input type="text" id="keywords" name="keywords" \
+             placeholder="First Name, Last Name, or Email Address"\
+             class="form-control input-lg">\
       <span class="input-group-btn"> \
-        <%= submit_tag "Find Customers", class: "btn btn-primary btn-lg" %> \
+        <input type="submit" value="Find Customers"\
+               class="btn btn-primary btn-lg">\
       </span> \
     </div> \
-  <% end %> \
+  </form> \
 </section> \
-
 <section class="search-results"> \
   <header> \
-    <h1 class="h3">Search Results</h1> \
+    <h1 class="h3">Results</h1> \
   </header> \
-  <% if @customers.present? %> \
-    <%= render partial: "pager", locals: { keywords: @keywords, page: @page } %> \
-  <% end %> \
   <ol class="list-group"> \
-    <% @customers.each do |customer| %> \
-      <li class="list-group-item clearfix"> \
-        <h3 class="pull-right"> \
-          <small class="text-uppercase">Joined</small> <%= l customer.created_at.to_date%> \
-        </h3> \
-        <h2 class="h3"> \
-          <%= customer.first_name%> <%= customer.last_name%> \
-          <small><%= customer.username%></small> \
-        </h2> \
-        <h4><%= customer.email%></h4> \
-      </li> \
-    <% end %> \
+    <li class="list-group-item clearfix"> \
+      <h3 class="pull-right"> \
+        <small class="text-uppercase">Joined</small> \
+        2016-01-01\
+      </h3> \
+      <h2 class="h3"> \
+        Pat Smith\
+        <small>psmith34</small> \
+      </h2> \
+      <h4>pat.smith@example.com</h4> \
+    </li> \
   </ol> \
-  <% if @customers.present? %> \
-    <%= render partial: "pager", locals: { keywords: @keywords, page: @page } %> \
-    <% end %> \
-</section> \ '
+</section> \
+  '
 }).Class({
   constructor: function() {
   }
 });
 
 var CustomerAppModule = NgModule({
-  imports: [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule ],
   declarations: [ CustomerSearchComponent ],
-  bootstrap: [ CustomerSearchComponent ]
+  bootstrap:    [ CustomerSearchComponent ]
 })
 .Class({
   constructor: function() {}
