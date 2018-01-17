@@ -1,24 +1,21 @@
-# README
+# Gill's Aquarium
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails app made to explore features and frameworks.  Once completed, it will serve as a sandbox for further experimentation.
 
-Things you may want to cover:
+## Included Technologies
 
-* Ruby version
+* Ruby on Rails 5.1.4
 
-* System dependencies
+* Postgresql 10
 
-* Configuration
+* Bootstrap 3
 
-* Database creation
+* Angular 4.1.3
 
-* Database initialization
+## Gems
 
-* How to run the test suite
+* Webpacker
 
-* Services (job queues, cache servers, search engines, etc.)
+* Foreman
 
-* Deployment instructions
-
-* ...
+* Devise
