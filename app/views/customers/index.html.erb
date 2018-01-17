@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <h1 class="h2"> Customer Search</h1>
 </header>
 
@@ -38,4 +38,9 @@
   <% if @customers.present? %>
     <%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
     <% end %>
+</section> -->
+
+<section>
+  <gill-customer-search></gill-customer-search>
 </section>
+<%= javascript_pack_tag "customers" %>
