@@ -6,7 +6,7 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
 var CustomerSearchComponent = Component({
   selector: "gills-customer-search",
-  template: '\
+  template: ' \
 <header> \
   <h1 class="h2"> Customer Search</h1> \
 </header> \
@@ -47,9 +47,19 @@ var CustomerSearchComponent = Component({
   <% if @customers.present? %> \
     <%= render partial: "pager", locals: { keywords: @keywords, page: @page } %> \
     <% end %> \
-</section> \
-'
+</section> \ '
 }).Class({
   constructor: function() {
   }
 });
+
+var CustomerAppModule = NgModule({
+  imports: [ BrowserModule, FormsModule ],
+  declarations: [ CustomerSearchComponent ],
+  bootstrap: [ CustomerSearchComponent ]
+})
+.Class({
+  constructor: function() {}
+});
+
+platformBrowserDynamic().bootstrapModule(CustomerAppModule);
