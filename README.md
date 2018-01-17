@@ -12,6 +12,7 @@ This is a Rails app made to explore features and frameworks.  Once completed, it
 
 * Angular 4.1.3
 
+
 ## Gems
 
 * Webpacker
