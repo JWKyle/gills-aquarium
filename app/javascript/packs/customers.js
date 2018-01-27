@@ -32,16 +32,17 @@ var CustomerSearchComponent = Component({
     <h1 class="h3">Results</h1> \
   </header> \
   <ol class="list-group"> \
-    <li class="list-group-item clearfix"> \
+    <li *ngFor= "let customer of customers" \
+    class="list-group-item clearfix"> \
       <h3 class="pull-right"> \
         <small class="text-uppercase">Joined</small> \
-        2016-01-01\
+        {{customer.created_at}}\
       </h3> \
       <h2 class="h3"> \
-        Pat Smith\
-        <small>psmith34</small> \
+        {{customer.first_name}} {{customer.last_name}}\
+        <small>{{customer.username}}</small> \
       </h2> \
-      <h4>pat.smith@example.com</h4> \
+      <h4>{{customer.email}}</h4> \
     </li> \
   </ol> \
 </section> \
