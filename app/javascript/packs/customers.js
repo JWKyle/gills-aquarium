@@ -4,6 +4,7 @@ import { Component, NgModule    } from "@angular/core";
 import { BrowserModule          } from "@angular/platform-browser";
 import { FormsModule            } from "@angular/forms";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { Http,HttpModule } from "@angular/http";
 
 var RESULTS = [
   {
@@ -87,22 +88,31 @@ var CustomerSearchComponent = Component({
 </section> \
   '
 }).Class({
-  constructor: function() {
+  constructor: [
+    Http,
+    function(http) {
     this.customers = null;
+    this.http = http;
     this.keywords = "";
-  },
+    }
+  ],
   search: function() {
-    if (this.keywords == "pat") {
-      this.customers = RESULTS;
-    }
-    else {
-      this.customers = []
-    }
+    var self = this;
+    self.http.get(
+      "/customers.json?keywords=" + self.keywords
+    ).subscribe(
+      function(response) {
+      self.customers = response.json().customers;
+    },
+      function(response) {
+        window.alert(response);
+      }
+    );
   }
 });
 
 var CustomerAppModule = NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule, HttpModule ],
   declarations: [ CustomerSearchComponent ],
   bootstrap:    [ CustomerSearchComponent ]
 })
