@@ -23,7 +23,7 @@ var CustomerSearchComponent = Component({
            class="form-control input-lg">\
   </form> \
 </section> \
-<section class="search-results"> \
+<section class="search-results" *ngIf="customers"> \
   <header> \
     <h1 class="h3">Results</h1> \
   </header> \
