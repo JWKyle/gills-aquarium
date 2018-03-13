@@ -1,6 +1,6 @@
 # Gill's Aquarium
 
-This is a Rails app made to explore features and frameworks.  Once completed, it will serve as a sandbox for further experimentation.
+This is a Rails app made to explore features and frameworks, particularly Angular and Bootstrap.  In it's current form, it acts as a SPA contact lookup.  Once completed, it will serve as a sandbox for further experimentation.
 
 ## Included Technologies
 
@@ -20,3 +20,7 @@ This is a Rails app made to explore features and frameworks.  Once completed, it
 * Foreman
 
 * Devise
+
+## Status
+
+De-bugging testing issues
